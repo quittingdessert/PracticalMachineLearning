@@ -63,7 +63,7 @@ length(candidates)
 
 clean.indata <- cbind(classe = indata$classe, indata[, names(a2)])
 #------------------------------------------
-#2. Cross-validation
+#2. Cross-validation 70-30 split
 set.seed(221)
 inTrain <- createDataPartition(y = clean.indata$classe, p = 0.7, list = FALSE)
 Train <- clean.indata[inTrain,]
@@ -193,7 +193,7 @@ Top15.features <- sort.Imp1$Variable[1:15]
 
 Train2 <- cbind(classe = y.train, x.train[, Top15.features])
 
-#Fit random forest with the top 10 selected features (don't use formula format - slow)
+#Fit random forest with the top 15 selected features (don't use formula format - slow)
 #modFit.rf <- train(classe ~ .,data = Train2, method = "rf", prox = T, verbose = T)
 
 set.seed(2)
