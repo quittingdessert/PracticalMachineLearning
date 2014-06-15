@@ -25,5 +25,12 @@ The write_up.R script (see file in the repo) was designed to do following:
 * Step 0: Gave a quick check of data by separating them according to new vs. old windows. (The reason was explained as above.)
 * Step 1: Cleaned up features with high missing/NA rate and those with single fixed value, i.e. variance = 0. Most of the derived features were removed in this step and left 51 features.
 * Step 2: Further split *training* into two data sets: *Train* and *Test* with 70-30 split to detect overfitting.
-* Step 3: Created a stratified sample to plot the features. Figure below shows 10 features out of 51. Several features were highly correlated with others. Either compressing the data or further feature selection is required. I didn't choose compressing data for easier explanation later.  ![plot1_scatterplot](plot1_scatterplot.png) 
-* Step 4: Selected features through recursive feature eliminating. The *Train* data set were normalized first (unncessary step), and then correlation was checking again through findCorrelation in *caret* package. And, then through rfeControl func = rfFunctions to calculate variable importance using random forest. Figure below suggests ~15 features probably are sufficient to give us good accuracy. ![plot2_NumberFeatures](plot2_NumberFeatures.png)
+* Step 3: Created a stratified sample to plot the features. Figure below shows 10 features out of 51. Several features were highly correlated with others. Either compressing the data or further feature selection is required. I didn't choose compressing data for easier explanation later.![plot1_scatterplot](plot1_scatterplot.png) 
+* Step 4: Selected features through recursive feature eliminating. The *Train* data set were normalized first (unncessary step), and then correlation was checking again through findCorrelation in *caret* package. And, then through rfeControl func = rfFunctions to calculate variable importance using random forest. Figure below suggests ~15 features probably are sufficient to give us good accuracy.          ![plot2_NumberFeatures](plot2_NumberFeatures.png)
+```sh
+> Top15.features
+ [1] "yaw_belt"          "magnet_dumbbell_z" "pitch_forearm"     "magnet_dumbbell_y" 
+ [5] "roll_forearm"      "magnet_dumbbell_x" "magnet_belt_y"     "magnet_belt_z"
+ [9] "accel_dumbbell_y"  "roll_dumbbell"     "gyros_belt_z"      "roll_arm"     
+[13] "total_accel_belt"  "accel_forearm_x"   "magnet_forearm_z" 
+```
