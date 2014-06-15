@@ -31,7 +31,7 @@ The write_up.R script (see file in the repo) was designed to do following:
 
 * Step 4: 
 
-   * Selected features through recursive feature eliminating. The *Train* data set were normalized first (unncessary step), and then correlation was checking again through findCorrelation in *caret* package. And, then through rfeControl func = rfFunctions to calculate variable importance using random forest. Figure below suggests ~15 features probably are sufficient to give us good accuracy.
+   - Selected features through recursive feature eliminating. The *Train* data set were normalized first (unncessary step), and then correlation was checking again through findCorrelation in *caret* package. And, then through rfeControl func = rfFunctions to calculate variable importance using random forest. Figure below suggests ~15 features probably are sufficient to give us good accuracy.
 
 ![plot2 NumberFeatures](plot2_NumberFeatures.png)
 
@@ -42,9 +42,9 @@ The write_up.R script (see file in the repo) was designed to do following:
  [9] "accel_dumbbell_y"  "roll_dumbbell"     "gyros_belt_z"      "roll_arm"     
 [13] "total_accel_belt"  "accel_forearm_x"   "magnet_forearm_z" 
 ```
-   * Used *randomForest* to train the selected features against *classe*. The in-sample error is ~1.3%.
+   - Used *randomForest* to train the selected features against *classe*. The in-sample error is ~1.3%.
    
- ```sh
+```sh
 > modFit.rf
         OOB estimate of  error rate: 1.27%
 Confusion matrix:
@@ -56,3 +56,24 @@ D    1    5   31 2211    4 0.018206039
 E    0    1    7    7 2510 0.005940594
 
 ```
+   - Applied the model to *Test* data. The sample error is ~1.5%, which is not too off from the in-sample error 1.3%
+
+```sh  
+> confusionMatrix(pred, Test1[,1]) #accuray = 0.985 sample error rate ~ 1.5%
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    A    B    C    D    E
+         A 1669   10    0    0    0
+         B    0 1105   18    0    0
+         C    2   17 1000   18    0
+         D    3    7    8  946    5
+         E    0    0    0    0 1077
+
+Overall Statistics
+                                         
+               Accuracy : 0.985          
+                 95% CI : (0.9816, 0.988)
+    No Information Rate : 0.2845         
+    P-Value [Acc > NIR] : < 2.2e-16   
+``` 
