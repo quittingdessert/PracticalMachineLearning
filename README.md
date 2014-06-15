@@ -20,7 +20,7 @@ https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 
 Without the codebook of the input data nor domain knowledge of the subject, I treated the features as they are, even though the data set probably should be separated into 2 data files: point-of-time versus aggregated level, b/c the derived features look like only populated when *new_windows = “yes”*, and might be derived from the same *window_num*. Only 6 out of 152 features in *new_windows = “yes”*  with NA rate more than 95% versus 100 out of 152 features with the same threshold in *new_windows = “no”*. Anyhow, in the analysis, I focused on the 152 numeric-formatted features and treated them as they are in the input data file, i.e. excluded “window”, and time-related features.
 
-The write_up.R script (see file in the repo) was designed to do following:
+The WriteUp_Script.R (see file in the repo) was designed to do following:
 
 * Step 0: Gave a quick check of data by separating them according to new vs. old windows. (The reason was explained as above.)
 * Step 1: Cleaned up features with high missing/NA rate and those with single fixed value, i.e. variance = 0. Most of the derived features were removed in this step and left 51 features.
