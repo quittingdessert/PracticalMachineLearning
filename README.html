@@ -216,7 +216,7 @@ E    0    1    7    7 2510 0.005940594
 </code></pre>
 
 <ul>
-<li>Applied the model to <em>Test</em> data. The sample error is ~1.5%, which is not too off from the in-sample error 1.3%</li>
+<li>Applied the model to <em>Test</em> data (30% hold-out). The out-of-sample error is estimated ~1.5%, which is not too off from the in-sample error 1.3%</li>
 </ul>
 
 <pre><code class="sh">&gt; confusionMatrix(pred, Test1[,1]) #accuray = 0.985 sample error rate ~ 1.5%
@@ -239,14 +239,13 @@ Overall Statistics
 </code></pre>
 
 <ul>
-<li>Step 5&amp;6. Applied the model to 20 observations from Testing data set, and submitted the answers (received 20/20).
-&ldquo;sh<br/>
-&gt; predict(modFit.rf, x.outdata)
-1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
-B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B </li>
+<li>Step 5&amp;6. Applied the model to 20 observations from Testing data set, and submitted the answers (received 20/20).</li>
 </ul>
 
-<pre><code></code></pre>
+<pre><code class="sh">&gt; predict(modFit.rf, x.outdata)
+ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+ B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
+</code></pre>
 
 </body>
 
