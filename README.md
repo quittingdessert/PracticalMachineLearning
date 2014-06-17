@@ -56,7 +56,7 @@ D    1    5   31 2211    4 0.018206039
 E    0    1    7    7 2510 0.005940594
 
 ```
-   - Applied the model to *Test* data. The sample error is ~1.5%, which is not too off from the in-sample error 1.3%
+   - Applied the model to *Test* data (30% hold-out). The out-of-sample error is estimated ~1.5%, which is not too off from the in-sample error 1.3%
 
 ```sh  
 > confusionMatrix(pred, Test1[,1]) #accuray = 0.985 sample error rate ~ 1.5%
@@ -79,9 +79,9 @@ Overall Statistics
 ``` 
 
 * Step 5&6. Applied the model to 20 observations from Testing data set, and submitted the answers (received 20/20).
+
 ```sh  
 > predict(modFit.rf, x.outdata)
  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
  B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
-
-``` 
+```
